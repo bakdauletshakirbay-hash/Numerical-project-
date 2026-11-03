@@ -1,0 +1,122 @@
+
+================ TASK 1: prediction of 2026 from 2021-2025 data ================
+Category           Model           Predicted         Actual     Abs. error   Rel. error
+All population     Lagrange         20123827       20499822         375995   1.8341e-02
+                   Spline           20538326       20499822          38504   1.8783e-03
+Urban population   Lagrange         12655941       13085110         429169   3.2798e-02
+                   Spline           13098294       13085110          13184   1.0076e-03
+Rural population   Lagrange          7467886        7414712          53174   7.1714e-03
+                   Spline            7440032        7414712          25320   3.4148e-03
+
+================ TASK 2: back-testing ================
+
+All population
+Data used   Target        Actual |     Lagrange        E_abs      E_rel |       Spline        E_abs      E_rel
+2021-2023   2024        20033842 |     19670496       363346 1.8137e-02 |     20030455         3387 1.6906e-04
+2021-2024   2025        20286084 |     20667610       381526 1.8807e-02 |     20300877        14793 7.2922e-04
+2021-2025   2026        20499822 |     20123827       375995 1.8341e-02 |     20538326        38504 1.8783e-03
+                               mean E_rel (Lagrange) = 1.8428e-02,  mean E_rel (Spline) = 9.2551e-04
+
+Urban population
+Data used   Target        Actual |     Lagrange        E_abs      E_rel |       Spline        E_abs      E_rel
+2021-2023   2024        12451192 |     11807350       643842 5.1709e-02 |     12428554        22638 1.8181e-03
+2021-2024   2025        12774743 |     13358968       584225 4.5733e-02 |     12692488        82255 6.4389e-03
+2021-2025   2026        13085110 |     12655941       429169 3.2798e-02 |     13098294        13184 1.0076e-03
+                               mean E_rel (Lagrange) = 4.3413e-02,  mean E_rel (Spline) = 3.0882e-03
+
+Rural population
+Data used   Target        Actual |     Lagrange        E_abs      E_rel |       Spline        E_abs      E_rel
+2021-2023   2024         7582650 |      7863146       280496 3.6992e-02 |      7601901        19251 2.5388e-03
+2021-2024   2025         7511341 |      7308642       202699 2.6986e-02 |      7608389        97048 1.2920e-02
+2021-2025   2026         7414712 |      7467886        53174 7.1714e-03 |      7440032        25320 3.4148e-03
+                               mean E_rel (Lagrange) = 2.3716e-02,  mean E_rel (Spline) = 6.2913e-03
+
+Summary of back-testing (3 predictions per category)
+Category            mean Erel Lagr. mean Erel Spline  Lagrange wins    Spline wins
+All population           1.8428e-02       9.2551e-04              0              3
+Urban population         4.3413e-02       3.0882e-03              0              3
+Rural population         2.3716e-02       6.2913e-03              0              3
+Overall                  2.8519e-02       3.4350e-03              0              9
+
+================ TASK 3: sensitivity to a 0.5% change in the 2024 value ================
+Experiment             Model         P_original    P_perturbed            S    S / 0.005
+(a) All population     Lagrange        20123827       19122135   4.9776e-02        9.955
+                       Spline          20538326       20438157   4.8772e-03        0.975
+                       S_Lagrange / S_Spline = 10.21
+(b) Urban population   Lagrange        12655941       13278501   4.9191e-02        9.838
+                       Spline          13098294       13160550   4.7530e-03        0.951
+                       S_Lagrange / S_Spline = 10.35
+(c) Rural population   Lagrange         7467886        7088754   5.0768e-02       10.154
+                       Spline           7440032        7402119   5.0958e-03        1.019
+                       S_Lagrange / S_Spline = 9.96
+
+S/0.005 is the amplification factor: how many times the relative change in
+the 2026 prediction is larger than the 0.5% change made in the data.
+Model selected for Tasks 4, 6, 7: spline (see selected_model.m)
+
+================ TASK 4: when does the total population reach 20.7 million? ================
+Model: spline built on 2023-2026 data,  F(t) = P(t) - 20,700,000
+F(2026) = -200178.00,  F(2027) = 13560.00
+Stopping tolerance TOL = 1e-06 years for all three methods
+
+(a) Bisection method, initial interval [2026, 2027]
+   k              a_k              b_k              p_k           F(p_k)
+   1    2026.00000000    2027.00000000    2026.50000000      -96789.5750
+   2    2026.50000000    2027.00000000    2026.75000000      -42920.0031
+   3    2026.75000000    2027.00000000    2026.87500000      -15060.6895
+   4    2026.87500000    2027.00000000    2026.93750000        -852.3147
+   5    2026.93750000    2027.00000000    2026.96875000        6327.5004
+   6    2026.93750000    2026.96875000    2026.95312500        2731.1135
+   7    2026.93750000    2026.95312500    2026.94531250         937.7929
+   8    2026.93750000    2026.94531250    2026.94140625          42.3391
+   9    2026.93750000    2026.94140625    2026.93945312        -405.0876
+  10    2026.93945312    2026.94140625    2026.94042969        -181.3992
+  11    2026.94042969    2026.94140625    2026.94091797         -69.5363
+  12    2026.94091797    2026.94140625    2026.94116211         -13.6002
+  13    2026.94116211    2026.94140625    2026.94128418          14.3691
+  14    2026.94116211    2026.94128418    2026.94122314           0.3844
+  15    2026.94116211    2026.94122314    2026.94119263          -6.6079
+  16    2026.94119263    2026.94122314    2026.94120789          -3.1118
+  17    2026.94120789    2026.94122314    2026.94121552          -1.3637
+  18    2026.94121552    2026.94122314    2026.94121933          -0.4897
+  19    2026.94121933    2026.94122314    2026.94122124          -0.0527
+Final approximation p = 2026.94122219 (= midpoint of last interval), F(p) = 0.1658
+Iterations: 19  (a priori: n = ceil(log2(b-a) - log2(2*TOL)))
+
+(b) Secant method, initial approximations p0 = 2026, p1 = 2027
+   i              p_i           F(p_i)  |p_i - p_{i-1}|
+   1    2026.93655784      -1.0680e+03       6.3442e-02
+   2    2026.94118971      -7.2758e+00       4.6319e-03
+   3    2026.94122148       3.8768e-03       3.1772e-05
+   4    2026.94122147       1.1176e-08       1.6920e-08
+Iterations: 4
+
+(c) Newton's method, initial approximation p0 = 2026
+   i              p_i           F(p_i)  |p_i - p_{i-1}|
+   1    2026.97907395       8.7110e+03       9.7907e-01
+   2    2026.94138828       3.8221e+01       3.7686e-02
+   3    2026.94122147       7.2931e-04       1.6681e-04
+   4    2026.94122147       1.1176e-08       3.1830e-09
+Iterations: 4
+
+Method          root t* iterations      F evaluations F' evaluations         predicted date
+Bisection   2026.941222         19                 21              0        December 2026
+Secant      2026.941221          4                  6              0        December 2026
+Newton      2026.941221          4                  4              4        December 2026
+Max difference between the three roots: 7.24e-07 years
+
+================ RURAL POPULATION: projection with the spline model (2021-2026 data) ================
+Observed yearly changes 2021->2026: -216255 +44990 +25739 -71309 -96629
+Observed change 2021->2026: -313464 (-4.06%)
+Year         P (spline)         change vs 2026 (lagrange, comparison)
+2028            7230079      -184633 ( -2.49%)                7860987
+2030            7114449      -300263 ( -4.05%)               10465187
+Model slope P'(2026) = -98067 people/year
+
+================ URBAN POPULATION: projection with the spline model (2021-2026 data) ================
+Observed yearly changes 2021->2026: +839862 +218658 +241296 +323551 +310367
+Observed change 2021->2026: +1933734 (+17.34%)
+Year         P (spline)         change vs 2026 (lagrange, comparison)
+2028           13742027       656917 ( +5.02%)               15084270
+2030           14688408      1603298 (+12.25%)               30892462
+Model slope P'(2026) = 304337 people/year

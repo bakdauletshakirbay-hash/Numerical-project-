@@ -1,0 +1,8 @@
+function [years, total, urban, rural] = population_data()
+%% Population of Kazakhstan on January 1 of each year (project data table).
+%  Outputs are row vectors of the same length.
+years = [2021 2022 2023 2024 2025 2026];
+total = [18879552 19503159 19766807 20033842 20286084 20499822];
+urban = [11151376 11991238 12209896 12451192 12774743 13085110];
+rural = [ 7728176  7511921  7556911  7582650  7511341  7414712];
+end
