@@ -2,7 +2,7 @@
 
 ## How to run
 
-1. Open MATLAB and set the **Current Folder** to this `code` folder.
+1. Open MATLAB and set the **Current Folder** to the folder with the `.m` files.
 2. Type `main` in the Command Window.
 
 All results are printed to the Command Window and saved in `results.txt`. All figures are saved as PNG files in `figures/`.
@@ -27,6 +27,7 @@ Each task can also be run on its own (`task1_interpolation`, `task2_backtesting`
 | `selected_model.m` | **The model chosen in Task 3** (used by Tasks 4, 6, 7) | Change here if the group decides differently |
 | `year_to_date.m` | Converts t (years) to year + month | Helper |
 | `project_population.m` | 2028/2030 projections + plot (Tasks 6, 7) | Helper |
+| `save_figure.m` | Saves the current figure into `figures/` | Helper |
 | `task1_...m` to `task7_...m`, `main.m` | One script per task, `main` runs all | — |
 
 ## Modifications to the lecture code (explain these in the report)
@@ -44,9 +45,7 @@ Each task can also be run on its own (`task1_interpolation`, `task2_backtesting`
 - **Task 4:** TOL = 1e-6 years (about 30 seconds) for all three methods. Bisection interval [2026, 2027]. Secant p0 = 2026, p1 = 2027. Newton p0 = 2026. F(2026) < 0 < F(2027).
 - **Selected model:** `'spline'`, chosen from the results of Tasks 2 and 3 (see below).
 
-## Main results (checked by running the same .m files in GNU Octave 8.4)
-
-The `results.txt` and `figures/` in this folder came from that Octave run. Re-run `main` in MATLAB to get MATLAB-style figures for the report; the numbers should be the same.
+## Main results (from `results.txt`, MATLAB run)
 
 - **Task 1 (2026 prediction):** spline relative errors 1.9e-3 (all), 1.0e-3 (urban), 3.4e-3 (rural). Lagrange: 1.8e-2, 3.3e-2, 7.2e-3.
 - **Task 2:** the spline is better in **all 9** back-tests. Mean relative error is 3.4e-3 for the spline vs 2.9e-2 for Lagrange.
