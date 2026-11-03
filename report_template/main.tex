@@ -1,6 +1,14 @@
-\documentclass[12pt,a4paper]{article}
+\documentclass[11pt,a4paper]{article}
 
-\usepackage[margin=2.25cm]{geometry}
+% Font: Palatino (text and matching math), 11pt
+\usepackage[T1]{fontenc}
+\usepackage[sc]{mathpazo}
+\linespread{1.05}
+
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{xcolor}
+\definecolor{nugold}{RGB}{214,177,98}
+\definecolor{linkgold}{RGB}{150,115,40}
 \usepackage{amsmath,amssymb}
 \usepackage{graphicx}
 \usepackage{booktabs}
@@ -8,7 +16,7 @@
 \usepackage{caption}
 \usepackage{fancyhdr}
 \usepackage{titlesec}
-\usepackage[colorlinks=true]{hyperref}
+\usepackage[colorlinks=true,linkcolor=linkgold,citecolor=linkgold,urlcolor=linkgold]{hyperref}
 
 % Section titles: "1. Introduction"
 \titleformat{\section}{\Large\bfseries}{\thesection.}{0.5em}{}
@@ -19,7 +27,8 @@
 \fancyhf{}
 \fancyhead[L]{\textbf{MATH 351 Group Project}}
 \fancyhead[R]{\textbf{\thepage}}
-\renewcommand{\headrulewidth}{0.6pt}
+\renewcommand{\headrulewidth}{0.8pt}
+\renewcommand{\headrule}{{\color{nugold}\hrule height \headrulewidth}}
 \setlength{\headheight}{15pt}
 
 \begin{document}
@@ -28,16 +37,16 @@
 \begin{titlepage}
 \centering
 \vspace*{0.5cm}
-\includegraphics[width=0.75\textwidth]{nu_logo.pdf}\\[1.2cm]
+\includegraphics[width=0.75\textwidth]{nu_logo_gold.png}\\[1.2cm]
 
 {\Large\bfseries Nazarbayev University}\\[1.5cm]
 
 {\large\bfseries MATH 351, Numerical Methods with Applications}\\[0.6cm]
 
-\rule{\textwidth}{0.6pt}\\[0.3cm]
+{\color{nugold}\rule{\textwidth}{1.2pt}}\\[0.3cm]
 {\LARGE Group Project}\\[0.3cm]
 {\large\bfseries Interpolation, Prediction and Root-Finding\\for the Population of Kazakhstan}\\[0.2cm]
-\rule{\textwidth}{0.6pt}\\[1.2cm]
+{\color{nugold}\rule{\textwidth}{1.2pt}}\\[1.2cm]
 
 \begin{minipage}[t]{0.55\textwidth}
 \bfseries
