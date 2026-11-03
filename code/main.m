@@ -1,8 +1,4 @@
-%% MATH 351 Group Project, Fall 2026 - population of Kazakhstan
-%  Runs all computational tasks. Results are printed to the Command
-%  Window and also saved to results.txt; figures go to the folder figures/.
-%  (Task 5 is a literature discussion and has no code.)
-
+%% MATH 351 Group Project - population of Kazakhstan
 clear; clc; close all;
 if exist('results.txt','file'), delete('results.txt'); end
 diary('results.txt');

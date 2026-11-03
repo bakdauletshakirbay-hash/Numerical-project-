@@ -50,9 +50,7 @@ Experiment             Model         P_original    P_perturbed            S    S
                        Spline           7440032        7402119   5.0958e-03        1.019
                        S_Lagrange / S_Spline = 9.96
 
-S/0.005 is the amplification factor: how many times the relative change in
-the 2026 prediction is larger than the 0.5% change made in the data.
-Model selected for Tasks 4, 6, 7: spline (see selected_model.m)
+Model selected for Tasks 4, 6, 7: spline
 
 ================ TASK 4: when does the total population reach 20.7 million? ================
 Model: spline built on 2023-2026 data,  F(t) = P(t) - 20,700,000
@@ -80,8 +78,8 @@ Stopping tolerance TOL = 1e-06 years for all three methods
   17    2026.94120789    2026.94122314    2026.94121552          -1.3637
   18    2026.94121552    2026.94122314    2026.94121933          -0.4897
   19    2026.94121933    2026.94122314    2026.94122124          -0.0527
-Final approximation p = 2026.94122219 (= midpoint of last interval), F(p) = 0.1658
-Iterations: 19  (a priori: n = ceil(log2(b-a) - log2(2*TOL)))
+Final approximation p = 2026.94122219, F(p) = 0.1658
+Iterations: 19
 
 (b) Secant method, initial approximations p0 = 2026, p1 = 2027
    i              p_i           F(p_i)  |p_i - p_{i-1}|

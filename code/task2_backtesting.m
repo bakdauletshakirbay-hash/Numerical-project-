@@ -1,13 +1,9 @@
-%% Task 2. Model validation and error analysis (back-testing)
-%  2021-2023 -> 2024,  2021-2024 -> 2025,  2021-2025 -> 2026
-%  for Model 1 (Lagrange) and Model 2 (natural cubic spline).
-
+%% Task 2. Model validation and error analysis
 [years, total, urban, rural] = population_data();
 names = {'All population','Urban population','Rural population'};
 data  = {total, urban, rural};
 
 fprintf('\n================ TASK 2: back-testing ================\n');
-% summary(i,:) = [mean Erel Lagrange, mean Erel spline, #wins Lagrange, #wins spline]
 summary = zeros(3,4);
 for i = 1:3
     fprintf('\n%s\n', names{i});
@@ -15,7 +11,7 @@ for i = 1:3
             'Data used','Target','Actual', ...
             'Lagrange','E_abs','E_rel','Spline','E_abs','E_rel');
     ErelL = zeros(1,3); ErelS = zeros(1,3);
-    for m = 3:5                          % use first m years, predict year m+1
+    for m = 3:5
         dataX   = years(1:m);
         dataY   = data{i}(1:m);
         tTarget = years(m+1);

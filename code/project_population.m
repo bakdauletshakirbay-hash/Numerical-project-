@@ -1,7 +1,5 @@
 function P = project_population(years, pop, name, figfile, fignum)
-%% Project a population category to 2028 and 2030 (Tasks 6 and 7).
-%  Uses the selected model (selected_model.m) built on all data 2021-2026.
-%  The other model is printed too, only for comparison in the discussion.
+%% Projection to 2028 and 2030 with the selected model (Tasks 6, 7)
 
 model  = selected_model();
 tFut   = [2028 2030];
@@ -21,10 +19,9 @@ for k = 1:numel(tFut)
             P(k)-pop(end), 100*(P(k)/pop(end)-1), Pother(k));
 end
 
-% Slope of the selected model at the end of the data (people per year)
 fprintf('Model slope P''(2026) = %.0f people/year\n', model_deriv(model, years, pop, 2026));
 
-%% Figure
+%% Plot
 if ~exist('figures','dir'), mkdir('figures'); end
 tt = 2021:0.01:2030;
 figure(fignum); clf;

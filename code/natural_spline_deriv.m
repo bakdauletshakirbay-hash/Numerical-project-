@@ -1,9 +1,5 @@
 function dy = natural_spline_deriv(dataX,dataY,x)
-%% Derivative of the natural cubic spline (NEW, for Newton's method in Task 4)
-%  On piece k:  S_k'(x) = bk + 2 ck (x-xk) + 3 dk (x-xk)^2.
-%  Uses the lecture coefficients from natural_spline_coef and the same
-%  piece selection (including extrapolation) as natural_spline.
-
+%% Derivative of the natural spline: S'(x) = bk + 2ck(x-xk) + 3dk(x-xk)^2
 [~,b,c,d] = natural_spline_coef(dataX,dataY);
 dy = zeros(size(x));
 for n = 1:length(x)

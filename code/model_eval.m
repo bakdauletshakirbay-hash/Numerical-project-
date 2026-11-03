@@ -1,7 +1,5 @@
 function y = model_eval(model,dataX,dataY,x)
-%% Evaluate one of the two numerical models at the point(s) x.
-%  model = 'lagrange'  -> Model 1, Lagrange interpolation polynomial
-%  model = 'spline'    -> Model 2, natural cubic spline interpolation
+%% Evaluate Model 1 ('lagrange') or Model 2 ('spline') at x
 switch lower(model)
     case 'lagrange'
         y = LagrangeInterpolation(dataX,dataY,x);

@@ -1,5 +1,5 @@
 function dy = model_deriv(model,dataX,dataY,x)
-%% Derivative of one of the two numerical models at the point(s) x.
+%% Derivative of Model 1 ('lagrange') or Model 2 ('spline') at x
 switch lower(model)
     case 'lagrange'
         dy = LagrangeDerivative(dataX,dataY,x);
