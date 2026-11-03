@@ -1,5 +1,6 @@
 %% MATH 351 Group Project - population of Kazakhstan
 clear; clc; close all;
+cd(fileparts(mfilename('fullpath')));
 if exist('results.txt','file'), delete('results.txt'); end
 diary('results.txt');
 

@@ -57,7 +57,6 @@ end
 fprintf('Max difference between the three roots: %.2e years\n', max(roots)-min(roots));
 
 %% Plot
-if ~exist('figures','dir'), mkdir('figures'); end
 tt = 2023:0.01:2028;
 figure(4); clf;
 plot(dataX, dataY/1e6, 'bo', 'MarkerSize', 8, 'LineWidth', 1.5); hold on
@@ -69,4 +68,4 @@ hold off; grid on
 xlabel('Year'); ylabel('Total population (millions)');
 title('Total population model (2023-2026 data) and the 20.7 million threshold');
 legend('Data 2023-2026', ['Model: ' model], '20.7 million', 'Root t^*', 'Location','NorthWest');
-saveas(gcf, fullfile('figures','task4_threshold.png'));
+save_figure('task4_threshold');

@@ -7,7 +7,6 @@ files = {'task1_all','task1_urban','task1_rural'};
 dataX = years(1:5);
 tPred = 2026;
 tPlot = 2021:0.01:2026;
-if ~exist('figures','dir'), mkdir('figures'); end
 
 fprintf('\n================ TASK 1: prediction of 2026 from 2021-2025 data ================\n');
 fprintf('%-18s %-10s %14s %14s %14s %12s\n', ...
@@ -38,5 +37,5 @@ for i = 1:3
     legend('Data 2021-2025','Model 1: Lagrange polynomial', ...
            'Model 2: natural cubic spline','Actual 2026', 'Location','best');
     xlim([2020.8 2026.2]);
-    saveas(gcf, fullfile('figures',[files{i} '.png']));
+    save_figure(files{i});
 end

@@ -22,7 +22,6 @@ end
 fprintf('Model slope P''(2026) = %.0f people/year\n', model_deriv(model, years, pop, 2026));
 
 %% Plot
-if ~exist('figures','dir'), mkdir('figures'); end
 tt = 2021:0.01:2030;
 figure(fignum); clf;
 plot(years, pop/1e6, 'bo', 'MarkerSize', 8, 'LineWidth', 1.5); hold on
@@ -34,5 +33,5 @@ xlabel('Year'); ylabel([name ' (millions)']);
 title([name ' of Kazakhstan: data and projection']);
 legend('Data 2021-2026', ['Model: ' model], 'Projection 2028, 2030', ...
        'End of data', 'Location','Best');
-saveas(gcf, fullfile('figures',[figfile '.png']));
+save_figure(figfile);
 end
