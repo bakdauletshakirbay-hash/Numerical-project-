@@ -1,0 +1,94 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[margin=2.25cm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage[colorlinks=true]{hyperref}
+
+% Section titles: "1. Introduction"
+\titleformat{\section}{\Large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\large\bfseries}{\thesubsection}{0.5em}{}
+
+% Header: report name on the left, page number on the right, line below
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\textbf{MATH 351 Group Project}}
+\fancyhead[R]{\textbf{\thepage}}
+\renewcommand{\headrulewidth}{0.6pt}
+\setlength{\headheight}{15pt}
+
+\begin{document}
+
+% ================= Title page =================
+\begin{titlepage}
+\centering
+\vspace*{0.5cm}
+\includegraphics[width=0.75\textwidth]{nu_logo.pdf}\\[1.2cm]
+
+{\Large\bfseries Nazarbayev University}\\[1.5cm]
+
+{\large\bfseries MATH 351, Numerical Methods with Applications}\\[0.6cm]
+
+\rule{\textwidth}{0.6pt}\\[0.3cm]
+{\LARGE Group Project}\\[0.3cm]
+{\large\bfseries Interpolation, Prediction and Root-Finding\\for the Population of Kazakhstan}\\[0.2cm]
+\rule{\textwidth}{0.6pt}\\[1.2cm]
+
+\begin{minipage}[t]{0.55\textwidth}
+\bfseries
+Student name:\\
+1. Student Name 1\\
+2. Student Name 2\\
+3. Student Name 3
+\end{minipage}%
+\begin{minipage}[t]{0.35\textwidth}
+\raggedleft\bfseries
+Student Number:\\
+000000000\\
+000000000\\
+000000000
+\end{minipage}\\[2cm]
+
+{\bfseries Instructor: Professor Yerlan Amanbek}\\[0.4cm]
+{\bfseries Submission date: XX.XX.26}
+
+\end{titlepage}
+\setcounter{page}{1}
+
+% ================= Report =================
+\section{Introduction}
+
+\section{Numerical Methods}
+\subsection{Lagrange Interpolation}
+\subsection{Natural Cubic Spline}
+\subsection{Root-Finding Methods}
+
+\section{Task 1: Interpolation and Prediction}
+
+\section{Task 2: Model Validation and Error Analysis}
+
+\section{Task 3: Sensitivity and Stability}
+
+\section{Task 4: Population Threshold and Root-Finding}
+
+\section{Task 5: Alternative Methods for Population Prediction}
+
+\section{Task 6: Rural Population}
+
+\section{Task 7: Urban Population}
+
+\section{MATLAB Implementation}
+
+\section{Conclusion}
+
+\begin{thebibliography}{9}
+\bibitem{lectures} Y.~Amanbek, \emph{MATH 351 Numerical Methods with Applications},
+lecture slides, Nazarbayev University, Fall 2026.
+\end{thebibliography}
+
+\end{document}
