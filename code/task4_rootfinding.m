@@ -62,8 +62,7 @@ figure(4); clf;
 plot(dataX, dataY/1e6, 'bo', 'MarkerSize', 8, 'LineWidth', 1.5); hold on
 plot(tt, model_eval(model,dataX,dataY,tt)/1e6, 'k-', 'LineWidth', 2);
 plot([tt(1) tt(end)], [target target]/1e6, 'r--', 'LineWidth', 1.5);
-plot(pN, target/1e6, 'p', 'MarkerSize', 14, ...
-     'MarkerEdgeColor', [0 0.6 0], 'MarkerFaceColor', [0 0.8 0]);
+plot(pN, target/1e6, 'kp', 'MarkerSize', 10, 'MarkerFaceColor', 'k');
 hold off; grid on
 xlabel('Year'); ylabel('Total population (millions)');
 title('Total population model (2023-2026 data) and the 20.7 million threshold');

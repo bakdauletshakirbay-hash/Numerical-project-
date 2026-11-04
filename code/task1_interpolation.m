@@ -29,13 +29,12 @@ for i = 1:3
     plot(dataX, dataY/1e6, 'bo', 'MarkerSize', 8, 'LineWidth', 1.5); hold on
     plot(tPlot, yL/1e6, 'r--', 'LineWidth', 2);
     plot(tPlot, yS/1e6, 'k-',  'LineWidth', 2);
-    plot(tPred, Pactual/1e6, 'p', 'MarkerSize', 14, ...
-         'MarkerEdgeColor', [0 0.6 0], 'MarkerFaceColor', [0 0.8 0]);
+    plot(tPred, Pactual/1e6, 'kp', 'MarkerSize', 10, 'MarkerFaceColor', 'k');
     hold off; grid on
     xlabel('Year'); ylabel('Population (millions)');
     title([names{i} ' of Kazakhstan: interpolation models']);
-    legend('Data 2021-2025','Model 1: Lagrange polynomial', ...
-           'Model 2: natural cubic spline','Actual 2026', 'Location','best');
+    legend('Data 2021-2025','Lagrange polynomial', ...
+           'Natural cubic spline','Actual 2026', 'Location','best');
     xlim([2020.8 2026.2]);
     save_figure(files{i});
 end
