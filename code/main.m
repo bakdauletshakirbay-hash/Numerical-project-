@@ -1,9 +1,8 @@
 %% MATH 351 Group Project - population of Kazakhstan
 clear; clc; close all;
 cd(fileparts(mfilename('fullpath')));
-resultsFile = fullfile(fileparts(pwd), 'results.txt');
-if exist(resultsFile,'file'), delete(resultsFile); end
-diary(resultsFile);
+if exist('results.txt','file'), delete('results.txt'); end
+diary('results.txt');
 
 task1_interpolation
 task2_backtesting
@@ -13,4 +12,5 @@ task6_rural
 task7_urban
 
 diary off
-fprintf('\nDone. Output saved to results.txt and figures/ (next to the code folder).\n');
+fprintf('\nDone. Results saved to:\n  %s\n  %s\n', ...
+        fullfile(pwd,'results.txt'), fullfile(pwd,'figures'));

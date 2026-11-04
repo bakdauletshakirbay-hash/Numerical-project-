@@ -58,14 +58,18 @@ fprintf('Max difference between the three roots: %.2e years\n', max(roots)-min(r
 
 %% Plot
 tt = 2023:0.01:2028;
+blue = [0 0.4470 0.7410];
+gray = [0.4 0.4 0.4];
+if strcmpi(model,'spline'), mlabel = 'Natural cubic spline'; else, mlabel = 'Lagrange polynomial'; end
 figure(4); clf;
-plot(dataX, dataY/1e6, 'bo', 'MarkerSize', 8, 'LineWidth', 1.5); hold on
-plot(tt, model_eval(model,dataX,dataY,tt)/1e6, 'k-', 'LineWidth', 2);
-plot([tt(1) tt(end)], [target target]/1e6, 'r--', 'LineWidth', 1.5);
-plot(pN, target/1e6, 'p', 'MarkerSize', 14, ...
-     'MarkerEdgeColor', [0 0.6 0], 'MarkerFaceColor', [0 0.8 0]);
-hold off; grid on
+hM = plot(tt, model_eval(model,dataX,dataY,tt)/1e6, '-', 'Color', blue, 'LineWidth', 1.5); hold on
+hT = plot([tt(1) tt(end)], [target target]/1e6, '--', 'Color', gray, 'LineWidth', 1);
+plot([pN pN], [dataY(1)/1e6 target/1e6], ':', 'Color', gray, 'LineWidth', 1);
+hD = plot(dataX, dataY/1e6, 'ko', 'MarkerSize', 6, 'MarkerFaceColor', 'w');
+hR = plot(pN, target/1e6, 'kp', 'MarkerSize', 9, 'MarkerFaceColor', 'k');
+hold off
 xlabel('Year'); ylabel('Total population (millions)');
-title('Total population model (2023-2026 data) and the 20.7 million threshold');
-legend('Data 2023-2026', ['Model: ' model], '20.7 million', 'Root t^*', 'Location','NorthWest');
+legend([hD hM hT hR], 'Data 2023-2026', mlabel, '20.7 million', 'Root t^*', ...
+       'Location', 'northwest');
+format_figure();
 save_figure('task4_threshold');

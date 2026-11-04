@@ -3,10 +3,13 @@
 names = {'All population','Urban population','Rural population'};
 data  = {total, urban, rural};
 files = {'task1_all','task1_urban','task1_rural'};
+legLoc = {'northwest','northwest','northeast'};   % empty corner of each plot
 
 dataX = years(1:5);
 tPred = 2026;
 tPlot = 2021:0.01:2026;
+blue = [0 0.4470 0.7410];          % plot colors
+red  = [0.8500 0.3250 0.0980];
 
 fprintf('\n================ TASK 1: prediction of 2026 from 2021-2025 data ================\n');
 fprintf('%-18s %-10s %14s %14s %14s %12s\n', ...
@@ -26,16 +29,15 @@ for i = 1:3
     yL = LagrangeInterpolation(dataX,dataY,tPlot);
     yS = natural_spline(dataX,dataY,tPlot);
     figure(i); clf;
-    plot(dataX, dataY/1e6, 'bo', 'MarkerSize', 8, 'LineWidth', 1.5); hold on
-    plot(tPlot, yL/1e6, 'r--', 'LineWidth', 2);
-    plot(tPlot, yS/1e6, 'k-',  'LineWidth', 2);
-    plot(tPred, Pactual/1e6, 'p', 'MarkerSize', 14, ...
-         'MarkerEdgeColor', [0 0.6 0], 'MarkerFaceColor', [0 0.8 0]);
-    hold off; grid on
-    xlabel('Year'); ylabel('Population (millions)');
-    title([names{i} ' of Kazakhstan: interpolation models']);
-    legend('Data 2021-2025','Model 1: Lagrange polynomial', ...
-           'Model 2: natural cubic spline','Actual 2026', 'Location','best');
-    xlim([2020.8 2026.2]);
+    hS = plot(tPlot, yS/1e6, '-', 'Color', blue, 'LineWidth', 1.5); hold on
+    hL = plot(tPlot, yL/1e6, '--', 'Color', red, 'LineWidth', 1.5);
+    hD = plot(dataX, dataY/1e6, 'ko', 'MarkerSize', 6, 'MarkerFaceColor', 'w');
+    hA = plot(tPred, Pactual/1e6, 'kp', 'MarkerSize', 9, 'MarkerFaceColor', 'k');
+    hold off
+    xlim([2020.8 2026.2]); set(gca, 'XTick', 2021:2026);
+    xlabel('Year'); ylabel([names{i} ' (millions)']);
+    legend([hD hL hS hA], 'Data 2021-2025', 'Lagrange polynomial', ...
+           'Natural cubic spline', 'Actual 2026', 'Location', legLoc{i});
+    format_figure();
     save_figure(files{i});
 end
