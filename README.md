@@ -5,7 +5,17 @@
 1. Open MATLAB and set the **Current Folder** to the `code` folder.
 2. Type `main` in the Command Window.
 
-All results are printed to the Command Window and saved in `code/results.txt`. All figures are saved as PNG files in `code/figures/`. The full paths are printed at the end of the run.
+All results are printed to the Command Window and saved in `code/results.txt`. All figures are saved as PNG files (300 dpi) in `code/figures/`. The full paths are printed at the end of the run.
+
+## Repository layout
+
+| Folder / file | Contents |
+|---|---|
+| `code/` | the 24 MATLAB `.m` files (this is what we submit as the code) |
+| `figures/`, `results.txt` | output of our MATLAB run, used in the report |
+| `report/` | LaTeX report draft with all result tables and figures filled in |
+| `report_template/` | empty LaTeX template with the NU title page (gold logo, Palatino 11pt) |
+| `*.pdf` | project description and lecture slides |
 
 Each task can also be run on its own (`task1_interpolation`, `task2_backtesting`, `task3_sensitivity`, `task4_rootfinding`, `task6_rural`, `task7_urban`). Task 5 is a literature discussion and has no code.
 
@@ -28,6 +38,7 @@ Each task can also be run on its own (`task1_interpolation`, `task2_backtesting`
 | `year_to_date.m` | Converts t (years) to year + month | Helper |
 | `project_population.m` | 2028/2030 projections + plot (Tasks 6, 7) | Helper |
 | `save_figure.m` | Saves the current figure into `code/figures/` (300 dpi) | Helper |
+| `format_figure.m` | Common figure style (Times 11 pt, 14 x 9 cm, light grid) | Helper |
 | `task1_...m` to `task7_...m`, `main.m` | One script per task, `main` runs all | — |
 
 ## Modifications to the lecture code (explain these in the report)
