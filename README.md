@@ -13,7 +13,6 @@ All results are printed to the Command Window and saved in `code/results.txt`. A
 |---|---|
 | `code/` | the 24 MATLAB `.m` files (this is what we submit as the code) |
 | `figures/`, `results.txt` | output of our MATLAB run, used in the report |
-| `report/` | LaTeX report draft with all result tables and figures filled in |
 | `report_template/` | empty LaTeX template with the NU title page (gold logo, Palatino 11pt) |
 | `*.pdf` | project description and lecture slides |
 
