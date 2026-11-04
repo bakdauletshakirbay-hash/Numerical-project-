@@ -1,6 +1,6 @@
 function save_figure(name)
-%% Save the current figure as figures/<name>.png (300 dpi, next to the code folder)
-figDir = fullfile(fileparts(fileparts(mfilename('fullpath'))), 'figures');
+%% Save the current figure as figures/<name>.png (300 dpi) inside the code folder
+figDir = fullfile(fileparts(mfilename('fullpath')), 'figures');
 try
     if ~exist(figDir,'dir'), mkdir(figDir); end
     print(gcf, fullfile(figDir, [name '.png']), '-dpng', '-r300');

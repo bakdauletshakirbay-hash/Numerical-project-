@@ -5,7 +5,7 @@
 1. Open MATLAB and set the **Current Folder** to the `code` folder.
 2. Type `main` in the Command Window.
 
-All results are printed to the Command Window and saved in `results.txt`. All figures are saved as PNG files in `figures/`. Both are written next to the `code` folder, not inside it.
+All results are printed to the Command Window and saved in `code/results.txt`. All figures are saved as PNG files in `code/figures/`. The full paths are printed at the end of the run.
 
 Each task can also be run on its own (`task1_interpolation`, `task2_backtesting`, `task3_sensitivity`, `task4_rootfinding`, `task6_rural`, `task7_urban`). Task 5 is a literature discussion and has no code.
 
@@ -27,7 +27,7 @@ Each task can also be run on its own (`task1_interpolation`, `task2_backtesting`
 | `selected_model.m` | **The model chosen in Task 3** (used by Tasks 4, 6, 7) | Change here if the group decides differently |
 | `year_to_date.m` | Converts t (years) to year + month | Helper |
 | `project_population.m` | 2028/2030 projections + plot (Tasks 6, 7) | Helper |
-| `save_figure.m` | Saves the current figure into `figures/` (next to `code/`) | Helper |
+| `save_figure.m` | Saves the current figure into `code/figures/` (300 dpi) | Helper |
 | `task1_...m` to `task7_...m`, `main.m` | One script per task, `main` runs all | — |
 
 ## Modifications to the lecture code (explain these in the report)
