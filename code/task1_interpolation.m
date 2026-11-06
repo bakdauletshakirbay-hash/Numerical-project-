@@ -3,12 +3,12 @@
 names = {'All population','Urban population','Rural population'};
 data  = {total, urban, rural};
 files = {'task1_all','task1_urban','task1_rural'};
-legLoc = {'northwest','northwest','northeast'};   % empty corner of each plot
+legLoc = {'northwest','northwest','northeast'};
 
 dataX = years(1:5);
 tPred = 2026;
 tPlot = 2021:0.01:2026;
-blue = [0 0.4470 0.7410];          % plot colors
+blue = [0 0.4470 0.7410];
 red  = [0.8500 0.3250 0.0980];
 
 fprintf('\n================ TASK 1: prediction of 2026 from 2021-2025 data ================\n');

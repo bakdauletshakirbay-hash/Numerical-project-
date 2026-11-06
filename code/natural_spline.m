@@ -1,19 +1,11 @@
 function y = natural_spline(dataX,dataY,x)
-%% Cubic Spline (Natual Boundary) Interpolation
-%  On each sub-interval, generate four coefficients aj, bj, cj, and dj
-%       Sj(x) = aj + bj(x-xj) + cj(x-xj)^2 + dj(x-xj)^3.
-%
-%  Inputs: dataX dataY are row vectors of same dimension.
-%          x is the query point(s).
-%  Output: y is the value of spline interpolation y=S(x) at query points x
+%% Natural cubic spline interpolation
 
-%% Generate Spline Coefficient [ai,bi,ci,di] on each interval.
 [a,b,c,d] = natural_spline_coef(dataX,dataY);
 
-%% Evaluate the query points
 y = zeros(size(x));
 for n = 1:length(x)
-    k = spline_piece(dataX,x(n));   % changed: also works outside the data range
+    k = spline_piece(dataX,x(n));
     xk = dataX(k);
     y(n) = a(k) + b(k)*(x(n)-xk) + c(k)*(x(n)-xk)^2 + d(k)*(x(n)-xk)^3;
 end

@@ -1,5 +1,5 @@
 function format_figure()
-%% Common academic style for all figures: 14 x 9 cm, Times 11 pt, light grid
+%% Figure style
 set(gcf, 'Color', 'w', 'Units', 'centimeters', 'Position', [2 2 14 9], ...
          'PaperPositionMode', 'auto');
 ax = gca;

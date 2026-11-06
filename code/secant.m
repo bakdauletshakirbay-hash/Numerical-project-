@@ -1,6 +1,5 @@
 function [p,n,hist] = secant(func,p0,p1,tol,N0)
 %% Secant method
-%  hist stores [i, p, f(p), |p - p1|] for each iteration
 hist = zeros(0,4);
 q0 = feval(func,p0);
 q1 = feval(func,p1);

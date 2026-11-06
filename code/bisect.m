@@ -1,6 +1,5 @@
 function [p,n,hist] = bisect(func,a,b,fa,fb,atol)
 %% Bisection method
-%  hist stores [k, a, b, p, f(p)] for each iteration (added for the table)
 if (a >= b) | (fa*fb >= 0) | (atol <= 0)
     disp('something wrong with the input: quitting');
     p = NaN; n = NaN; hist = [];

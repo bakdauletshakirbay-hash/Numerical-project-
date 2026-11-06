@@ -1,5 +1,5 @@
 function P = project_population(years, pop, name, figfile, fignum, legLoc)
-%% Projection to 2028 and 2030 with the selected model (Tasks 6, 7)
+%% Projection to 2028 and 2030 (Tasks 6, 7)
 
 model  = selected_model();
 tFut   = [2028 2030];
@@ -21,11 +21,10 @@ end
 
 fprintf('Model slope P''(2026) = %.0f people/year\n', model_deriv(model, years, pop, 2026));
 
-%% Plot
 blue = [0 0.4470 0.7410];
 if strcmpi(model,'spline'), mlabel = 'Natural cubic spline'; else, mlabel = 'Lagrange polynomial'; end
-tIn  = 2021:0.01:2026;                  % interpolation (inside the data)
-tOut = 2026:0.01:2030;                  % extrapolation (projection)
+tIn  = 2021:0.01:2026;
+tOut = 2026:0.01:2030;
 figure(fignum); clf;
 hI = plot(tIn,  model_eval(model, years, pop, tIn)/1e6,  '-',  'Color', blue, 'LineWidth', 1.5); hold on
 hE = plot(tOut, model_eval(model, years, pop, tOut)/1e6, '--', 'Color', blue, 'LineWidth', 1.5);

@@ -1,6 +1,5 @@
 function [p,n,hist] = newton(func,dfunc,p0,tol,N0)
 %% Newton's method
-%  hist stores [i, p, f(p), |p - p0|] for each iteration
 hist = zeros(0,4);
 i = 1;
 while i <= N0

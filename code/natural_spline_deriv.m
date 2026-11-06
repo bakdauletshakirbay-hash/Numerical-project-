@@ -1,5 +1,5 @@
 function dy = natural_spline_deriv(dataX,dataY,x)
-%% Derivative of the natural spline: S'(x) = bk + 2ck(x-xk) + 3dk(x-xk)^2
+%% Derivative of the natural cubic spline
 [~,b,c,d] = natural_spline_coef(dataX,dataY);
 dy = zeros(size(x));
 for n = 1:length(x)

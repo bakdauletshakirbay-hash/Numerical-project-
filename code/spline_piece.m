@@ -1,5 +1,5 @@
 function k = spline_piece(dataX,xq)
-%% Index of the spline piece used at xq (end pieces are used for extrapolation)
+%% Spline piece used at xq (end pieces are used for extrapolation)
 n = length(dataX) - 1;
 if xq < dataX(1)
     k = 1;
